@@ -1,0 +1,11 @@
+.btn-panel{
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+}
+.btn-panel__item{
+    background: none;
+    border: 1px solid #000;
+    margin-bottom: 8px;
+    padding: 7px;
+}
