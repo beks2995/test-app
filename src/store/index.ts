@@ -6,7 +6,6 @@ import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
 
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export const configureStore = <T extends object = never>(initialState: T): IWithSagaProductsStore => {
     const sagaMiddleware = createSagaMiddleware({});
     const middlewares = [sagaMiddleware];
@@ -26,7 +25,7 @@ export const configureStore = <T extends object = never>(initialState: T): IWith
         initialState,
         composeEnhancers(...enhancers)
     );
-    store.sagaProducts = sagaMiddleware.run(rootSaga);
+    store.sagaTasks = sagaMiddleware.run(rootSaga);
     return store;
 };
 

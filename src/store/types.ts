@@ -1,16 +1,17 @@
 import { Store } from 'redux';
 import { Task } from 'redux-saga';
-import { AxiosError } from 'axios';
 import { GetParamsFromSelectors, OutputSelector, SelectorResultArray } from 'reselect';
 
 import { TRecordOfProducts } from './products/types';
+import {TRecordOfBrands} from "./brands/types";
 
 export interface IApplicationState {
     products?: TRecordOfProducts;
+    brands?: TRecordOfBrands
 }
 
 export interface IWithSagaProductsStore extends Store<IApplicationState> {
-    sagaProducts?: Task;
+    sagaTasks?: Task;
     initialState?: IApplicationState;
 }
 
@@ -33,12 +34,6 @@ export declare type THandlers<T, S = void> = {
     [action: string]: THandler<T, S> | THandler<T, S>[];
 };
 
-export type ResponseGenericType<T, E = Record<string, unknown>> = {
-    fetching: boolean;
-    data: T | null;
-    error: AxiosError<E> | null;
-};
-
 export type TActionReturnType<T> = {
     type: string;
     payload?: T;
@@ -50,9 +45,3 @@ export type TSelectorReturnType<T, D> = OutputSelector<
     (...args: SelectorResultArray<[((state: IApplicationState) => D)]>) => T,
     GetParamsFromSelectors<[((state: IApplicationState) => D)]>
     >;
-
-export interface IDefaultState<T> {
-    data: T | null,
-    error: AxiosError | null,
-    fetching: boolean;
-}

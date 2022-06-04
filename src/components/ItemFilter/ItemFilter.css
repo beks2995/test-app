@@ -8,4 +8,8 @@
     border: 1px solid #000;
     margin-bottom: 8px;
     padding: 7px;
+    cursor: pointer;
+}
+.btn-panel__item_active{
+    background: #a4a4a4;
 }

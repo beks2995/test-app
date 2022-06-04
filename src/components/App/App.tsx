@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from "react-redux";
-import {getBrands, getProducts} from "../../store/products/actions";
+import {getProducts} from "../../store/products/actions";
+import {getBrands} from "../../store/brands/actions";
 import {BrowserRouter} from "react-router-dom";
 import {Route, Routes} from "react-router";
 import HomePage from "../../pages/HomePage";
@@ -11,7 +12,7 @@ const App = () => {
     useEffect(() => {
         dispatch(getProducts())
         dispatch(getBrands())
-    }, [])
+    }, [dispatch])
     return (
         <BrowserRouter>
             <Routes>

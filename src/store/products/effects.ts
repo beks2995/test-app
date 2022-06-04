@@ -1,10 +1,9 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import axios, { AxiosResponse } from 'axios';
 
-import { IBrands, IProduct, IProductsState } from './types';
+import { IProduct } from './types';
 import {
-    GET_BRANDS,
-    GET_PRODUCTS, setBrands, setProducts
+    GET_PRODUCTS, setProducts
 } from './actions';
 
 function* getProductsSaga(): Generator {
@@ -17,20 +16,10 @@ function* getProductsSaga(): Generator {
     }
 }
 
-function* getBrandsSaga(): Generator {
-    try {
-        const response = yield call(axios.get, 'https://raw.githubusercontent.com/AzureBin/react-test/master/assets/brands.json');
-        const { data } = response as AxiosResponse<IBrands[]>;
-        yield put(setBrands(data));
-    } catch (error) {
-        console.error(error);
-    }
-}
 
 function* Saga(): Generator {
     yield all([
         takeLatest([GET_PRODUCTS], getProductsSaga),
-        takeLatest([GET_BRANDS], getBrandsSaga),
     ]);
 }
 
