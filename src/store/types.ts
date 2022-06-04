@@ -4,10 +4,12 @@ import { GetParamsFromSelectors, OutputSelector, SelectorResultArray } from 'res
 
 import { TRecordOfProducts } from './products/types';
 import {TRecordOfBrands} from "./brands/types";
+import {TRecordOfCartProducts} from "./cart/types";
 
 export interface IApplicationState {
     products?: TRecordOfProducts;
-    brands?: TRecordOfBrands
+    brands?: TRecordOfBrands;
+    cartProducts?: TRecordOfCartProducts
 }
 
 export interface IWithSagaProductsStore extends Store<IApplicationState> {

@@ -19,15 +19,19 @@ const Catalog = (): JSX.Element => {
     }
 
     return (
-        <div className='catalog'>
+        <div className='catalog d-flex flex-wrap'>
             <ItemFilter brandValue={brandValue} setBrandValue={setBrandValue}/>
             <div className='catalog-items'>
                 <h1 className='catalog__title'>Catalog</h1>
-                {// @ts-ignore
-                    cardsArr().map((el) => (
-                        <Card key={el.id} title={el.title} img={el.image} brand={el.brand} price={el.regular_price}/>
-                    ))
-                }
+                <div className="row">
+                    {// @ts-ignore
+                        cardsArr().map((el) => (
+                            <div className='col-lg-3 col-md-6' key={el.id}>
+                                <Card item={el} title={el.title} img={el.image} brand={el.brand} price={el.regular_price}/>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );

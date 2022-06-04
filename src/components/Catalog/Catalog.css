@@ -4,11 +4,15 @@
 }
 .catalog-items{
     width: calc(100% - 90px);
-    display: flex;
-    flex-wrap: wrap;
     padding-left: 15px;
 }
 .catalog__title{
     width: 100%;
     margin-bottom: 25px;
+}
+@media (max-width: 599px) {
+    .catalog-items{
+        width: 100%;
+        padding-left: 0;
+    }
 }

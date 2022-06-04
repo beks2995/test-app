@@ -3,12 +3,23 @@
     flex-direction: column;
     width: 90px;
 }
+@media (max-width: 599px) {
+    .btn-panel{
+        width: 100%;
+        flex-direction: row;
+        overflow: auto;
+    }
+    .btn-panel__item{
+        margin-right: 10px;
+    }
+}
 .btn-panel__item{
     background: none;
     border: 1px solid #000;
     margin-bottom: 8px;
     padding: 7px;
     cursor: pointer;
+    white-space: nowrap;
 }
 .btn-panel__item_active{
     background: #a4a4a4;

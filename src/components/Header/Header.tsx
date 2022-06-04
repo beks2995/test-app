@@ -1,8 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import './Header.css'
+import {useSelector} from "react-redux";
+import {makeSelectProducts} from "../../store/cart/selectors";
 
 const Header = () => {
+    const productInCart = useSelector(makeSelectProducts)
     return (
         <header className='header'>
             <Link to="/" className="header__logo">
@@ -10,7 +13,7 @@ const Header = () => {
             </Link>
             <Link to="/cart" className='header__cart'>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHcyZukD22x2TLsDxYz6Z-KKF_C1Wb2heiO_nj9WaSP_Fu0vnS2K9S6fQy2yNJ27uP3v8&usqp=CAU" className='header__cart-img' alt=""/>
-                <span className='header__cart-counter'>0</span>
+                <span className='header__cart-counter'>{productInCart.length}</span>
             </Link>
         </header>
     );
