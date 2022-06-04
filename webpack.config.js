@@ -1,16 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
     mode: 'development',
     entry: './src/index.tsx',
     devtool: 'inline-source-map',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, '/build'),
         filename: 'bundle.js'
     },
     devServer: {
-        static: './dist',
+        static: './build',
     },
     module: {
         rules: [
@@ -36,11 +35,6 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html'
-        }),
-        new CopyPlugin({
-            patterns: [
-                {from: "./public/source", to: "source"},
-            ],
         }),
     ]
 }
