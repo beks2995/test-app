@@ -1,5 +1,5 @@
 import React from 'react';
-import {setProducts} from "../../store/cart/actions";
+import {setCartProduct} from "../../store/cart/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {makeSelectProducts} from "../../store/cart/selectors";
 
@@ -42,7 +42,7 @@ const Card = ({title, img, brand, price, item}: ICard) => {
             <p className='card__brand'>Brand {brand}</p>
             <div className='d-flex justify-content-between align-items-center'>
                 <div className='card__price'>{price.currency === 'USD' ? '$' : ''} {price.value}</div>
-                <button type='button' onClick={() => dispatch(setProducts([...product, item]))}>Add to cart</button>
+                <button type='button' onClick={() => dispatch(setCartProduct([...product, item].sort((a, b) => a.id - b.id)))}>Add to cart</button>
             </div>
         </div>
     );

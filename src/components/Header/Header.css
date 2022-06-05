@@ -5,6 +5,13 @@
     padding: 25px 0 10px;
     border-bottom: 1px solid #000;
 }
+.cart-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0 10px;
+    border-bottom: 1px solid #000;
+}
 .header__logo{
 
 }
